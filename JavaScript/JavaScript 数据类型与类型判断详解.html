@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JavaScript 数据类型与类型判断详解 | XiaoXin</title>
+    <meta name="description" content="Everything Is Esay">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+  <meta name="referrer" content="no-referrer">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.c98d2fd1.css" as="style"><link rel="preload" href="/blog/assets/js/app.2ae5fea5.js" as="script"><link rel="preload" href="/blog/assets/js/2.6a053b7f.js" as="script"><link rel="preload" href="/blog/assets/js/23.f9a4866a.js" as="script"><link rel="preload" href="/blog/assets/js/4.2282b1d2.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.24a80492.js"><link rel="prefetch" href="/blog/assets/js/11.15dd0e81.js"><link rel="prefetch" href="/blog/assets/js/12.80be22dc.js"><link rel="prefetch" href="/blog/assets/js/13.8f3eea23.js"><link rel="prefetch" href="/blog/assets/js/14.4a737e05.js"><link rel="prefetch" href="/blog/assets/js/15.eb07cf8a.js"><link rel="prefetch" href="/blog/assets/js/16.36d73765.js"><link rel="prefetch" href="/blog/assets/js/17.17bc1d4d.js"><link rel="prefetch" href="/blog/assets/js/18.dc604255.js"><link rel="prefetch" href="/blog/assets/js/19.dba65164.js"><link rel="prefetch" href="/blog/assets/js/20.b1e13490.js"><link rel="prefetch" href="/blog/assets/js/21.6661e953.js"><link rel="prefetch" href="/blog/assets/js/22.b46aff83.js"><link rel="prefetch" href="/blog/assets/js/24.abc1ee8e.js"><link rel="prefetch" href="/blog/assets/js/25.5c6de7f7.js"><link rel="prefetch" href="/blog/assets/js/26.f0a361d6.js"><link rel="prefetch" href="/blog/assets/js/27.170936fa.js"><link rel="prefetch" href="/blog/assets/js/28.7899db47.js"><link rel="prefetch" href="/blog/assets/js/29.a7194b2b.js"><link rel="prefetch" href="/blog/assets/js/3.ebad0fee.js"><link rel="prefetch" href="/blog/assets/js/30.b2dee036.js"><link rel="prefetch" href="/blog/assets/js/31.c1603b7d.js"><link rel="prefetch" href="/blog/assets/js/32.9b4872ae.js"><link rel="prefetch" href="/blog/assets/js/33.0c4a6762.js"><link rel="prefetch" href="/blog/assets/js/34.216a6e8c.js"><link rel="prefetch" href="/blog/assets/js/35.c4da4fba.js"><link rel="prefetch" href="/blog/assets/js/36.4004ae2a.js"><link rel="prefetch" href="/blog/assets/js/37.970402d3.js"><link rel="prefetch" href="/blog/assets/js/38.5940f18d.js"><link rel="prefetch" href="/blog/assets/js/39.a9f7a9d7.js"><link rel="prefetch" href="/blog/assets/js/40.cab95d99.js"><link rel="prefetch" href="/blog/assets/js/41.c43504e7.js"><link rel="prefetch" href="/blog/assets/js/42.fea032c4.js"><link rel="prefetch" href="/blog/assets/js/43.d981b84c.js"><link rel="prefetch" href="/blog/assets/js/44.e469946c.js"><link rel="prefetch" href="/blog/assets/js/45.498af734.js"><link rel="prefetch" href="/blog/assets/js/46.5c5381de.js"><link rel="prefetch" href="/blog/assets/js/47.ade54cb1.js"><link rel="prefetch" href="/blog/assets/js/48.543817c4.js"><link rel="prefetch" href="/blog/assets/js/49.170032f2.js"><link rel="prefetch" href="/blog/assets/js/5.bbd49a80.js"><link rel="prefetch" href="/blog/assets/js/50.fdcebebc.js"><link rel="prefetch" href="/blog/assets/js/51.4688ae90.js"><link rel="prefetch" href="/blog/assets/js/52.2f859e2a.js"><link rel="prefetch" href="/blog/assets/js/53.46f20752.js"><link rel="prefetch" href="/blog/assets/js/54.8c4e2bde.js"><link rel="prefetch" href="/blog/assets/js/55.966bf42b.js"><link rel="prefetch" href="/blog/assets/js/56.93296c52.js"><link rel="prefetch" href="/blog/assets/js/57.c0e84a0a.js"><link rel="prefetch" href="/blog/assets/js/58.9c4fac4f.js"><link rel="prefetch" href="/blog/assets/js/59.18ed476c.js"><link rel="prefetch" href="/blog/assets/js/6.3b02335f.js"><link rel="prefetch" href="/blog/assets/js/60.e3ca94f3.js"><link rel="prefetch" href="/blog/assets/js/61.d40e0732.js"><link rel="prefetch" href="/blog/assets/js/62.952d91f1.js"><link rel="prefetch" href="/blog/assets/js/63.03715906.js"><link rel="prefetch" href="/blog/assets/js/64.6dce55d6.js"><link rel="prefetch" href="/blog/assets/js/65.fea30c40.js"><link rel="prefetch" href="/blog/assets/js/66.21bee15e.js"><link rel="prefetch" href="/blog/assets/js/7.64ef9703.js"><link rel="prefetch" href="/blog/assets/js/8.c33961b5.js"><link rel="prefetch" href="/blog/assets/js/9.61bba5ba.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.c98d2fd1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">XiaoXin</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/HTML+CSS/" class="nav-link">HTML+CSS</a></div><div class="nav-item"><a href="/blog/JavaScript/" class="nav-link router-link-active">JavaScript</a></div><div class="nav-item"><a href="/blog/React/" class="nav-link">React</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/Vue/VuePress/" class="nav-link">VuePress</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/electron/" class="nav-link">electron</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/vue官方文档解读/" class="nav-link">vue官方文档解读</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/关于双向绑定的探索/" class="nav-link">关于双向绑定的探索</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/源码学习/" class="nav-link">源码学习</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/问题记录/" class="nav-link">问题记录</a></li></ul></div></div><div class="nav-item"><a href="/blog/命名规范/" class="nav-link">命名规范</a></div><div class="nav-item"><a href="/blog/图床/" class="nav-link">图床</a></div><div class="nav-item"><a href="/blog/大前端/" class="nav-link">大前端</a></div> <a href="https://github.com/starfishing" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/HTML+CSS/" class="nav-link">HTML+CSS</a></div><div class="nav-item"><a href="/blog/JavaScript/" class="nav-link router-link-active">JavaScript</a></div><div class="nav-item"><a href="/blog/React/" class="nav-link">React</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/Vue/VuePress/" class="nav-link">VuePress</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/electron/" class="nav-link">electron</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/vue官方文档解读/" class="nav-link">vue官方文档解读</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/关于双向绑定的探索/" class="nav-link">关于双向绑定的探索</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/源码学习/" class="nav-link">源码学习</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/问题记录/" class="nav-link">问题记录</a></li></ul></div></div><div class="nav-item"><a href="/blog/命名规范/" class="nav-link">命名规范</a></div><div class="nav-item"><a href="/blog/图床/" class="nav-link">图床</a></div><div class="nav-item"><a href="/blog/大前端/" class="nav-link">大前端</a></div> <a href="https://github.com/starfishing" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/blog/JavaScript/" class="sidebar-link">笔记</a></li><li><a href="/blog/JavaScript/Asyncawait和Promise的不为人知的秘密.html" class="sidebar-link">【译】Async/await和Promise的不为人知的秘密</a></li><li><a href="/blog/JavaScript/ES6、ES7、ES8、ES9、ES10新特性一览.html" class="sidebar-link">ES6、ES7、ES8、ES9、ES10新特性一览</a></li><li><a href="/blog/JavaScript/JS中AMD、CMD、CommonJS、ES6 Module的区别.html" class="sidebar-link">JS 中 AMD、CMD、CommonJS、ES6 Module 的区别</a></li><li><a href="/blog/JavaScript/JS实现双向链表.html" class="sidebar-link">JS实现双链表</a></li><li><a href="/blog/JavaScript/JS类型隐式转换.html" class="sidebar-link">JS 类型隐式转换</a></li><li><a href="/blog/JavaScript/JavaScript 执行机制.html" class="sidebar-link">JavaScript 执行机制</a></li><li><a href="/blog/JavaScript/JavaScript 数据类型与类型判断详解.html" class="active sidebar-link">JavaScript 数据类型与类型判断详解</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/JavaScript/JavaScript 数据类型与类型判断详解.html#一、javascript-数据类型" class="sidebar-link">一、JavaScript 数据类型</a></li><li class="sidebar-sub-header"><a href="/blog/JavaScript/JavaScript 数据类型与类型判断详解.html#_1-基本数据类型" class="sidebar-link">1.基本数据类型</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/JavaScript/JavaScript 数据类型与类型判断详解.html#值不可变" class="sidebar-link">值不可变</a></li><li class="sidebar-sub-header"><a href="/blog/JavaScript/JavaScript 数据类型与类型判断详解.html#数据存放在栈区" class="sidebar-link">数据存放在栈区</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/JavaScript/JavaScript 数据类型与类型判断详解.html#_2-引用数据类型" class="sidebar-link">2.引用数据类型</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/JavaScript/JavaScript 数据类型与类型判断详解.html#值是可变的" class="sidebar-link">值是可变的</a></li><li class="sidebar-sub-header"><a href="/blog/JavaScript/JavaScript 数据类型与类型判断详解.html#同时保存在栈内存和堆内存" class="sidebar-link">同时保存在栈内存和堆内存</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/JavaScript/JavaScript 数据类型与类型判断详解.html#二、数据的赋值" class="sidebar-link">二、数据的赋值</a></li><li class="sidebar-sub-header"><a href="/blog/JavaScript/JavaScript 数据类型与类型判断详解.html#三、检验数据类型" class="sidebar-link">三、检验数据类型</a></li><li class="sidebar-sub-header"><a href="/blog/JavaScript/JavaScript 数据类型与类型判断详解.html#typeof" class="sidebar-link">typeof</a></li><li class="sidebar-sub-header"><a href="/blog/JavaScript/JavaScript 数据类型与类型判断详解.html#instanceof" class="sidebar-link">instanceof</a></li><li class="sidebar-sub-header"><a href="/blog/JavaScript/JavaScript 数据类型与类型判断详解.html#constructor" class="sidebar-link">constructor</a></li><li class="sidebar-sub-header"><a href="/blog/JavaScript/JavaScript 数据类型与类型判断详解.html#object-prototype-tostring-call" class="sidebar-link">Object.prototype.toString.call()</a></li><li class="sidebar-sub-header"><a href="/blog/JavaScript/JavaScript 数据类型与类型判断详解.html#总结" class="sidebar-link">总结</a></li></ul></li><li><a href="/blog/JavaScript/Symbol.iterator.html" class="sidebar-link">Symbol.iterator</a></li><li><a href="/blog/JavaScript/asyncawait遇到map和reduce.html" class="sidebar-link">async/await遇到map和reduce</a></li><li><a href="/blog/JavaScript/js利用H5的requestAnimationFrame() API实现动画效果.html" class="sidebar-link">requestAnimationFrame() API 实现动画效果</a></li><li><a href="/blog/JavaScript/webworker.html" class="sidebar-link">webworker</a></li><li><a href="/blog/JavaScript/不定参数.html" class="sidebar-link">关于 Add(2)(3)问题</a></li><li><a href="/blog/JavaScript/动态创建 Script标签.html" class="sidebar-link">动态创建 Script 标签</a></li><li><a href="/blog/JavaScript/动态换肤.html" class="sidebar-link">关于动态换肤的解决方案</a></li><li><a href="/blog/JavaScript/原型与原型链.html" class="sidebar-link">原型与原型链</a></li><li><a href="/blog/JavaScript/反思闭包.html" class="sidebar-link">反思闭包</a></li><li><a href="/blog/JavaScript/在JS如何让同一个值连等于为真.html" class="sidebar-link">在 JS 中，如何让(a===1 &amp;&amp; a===2 &amp;&amp; a === 3)(严格相等)的值为 true</a></li><li><a href="/blog/JavaScript/将嵌套数组转换为一维数组.html" class="sidebar-link">将嵌套数组转换为一维数组</a></li><li><a href="/blog/JavaScript/带你用Node了解JSONP实现原理.html" class="sidebar-link">带你用 Node 了解 JSONP 实现原理</a></li><li><a href="/blog/JavaScript/观察者模式.html" class="sidebar-link">实现观察者模式</a></li><li><a href="/blog/JavaScript/页面跳转以及刷新常用实现方式.html" class="sidebar-link">页面跳转以及刷新常用实现方式</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="javascript-数据类型与类型判断详解"><a href="#javascript-数据类型与类型判断详解" aria-hidden="true" class="header-anchor">#</a> JavaScript 数据类型与类型判断详解</h1> <h2 id="一、javascript-数据类型"><a href="#一、javascript-数据类型" aria-hidden="true" class="header-anchor">#</a> 一、JavaScript 数据类型</h2> <p>JavaScript 数据类型有两种，分别是基本数据类型和引用数据类型。</p> <ul><li>基本数据类型<strong>NumberStringBooleanUndefinedNullSymbol</strong> (ES6 新增，表示独一无二的值)</li> <li>引用数据类型<strong>ObjectFunctionArray</strong></li></ul> <p>我们来详细了解一下这两种数据类型的特点</p> <h2 id="_1-基本数据类型"><a href="#_1-基本数据类型" aria-hidden="true" class="header-anchor">#</a> 1.基本数据类型</h2> <h3 id="值不可变"><a href="#值不可变" aria-hidden="true" class="header-anchor">#</a> 值不可变</h3> <p>基本类型的值是 <strong>不可变</strong> 的</p> <div class="language- extra-class"><pre class="language-text"><code>var name = 'javascript';
+name.toUpperCase(); //  'JAVASCRIPT'
+console.log(name); //  'javascript'
+</code></pre></div><p>但是我们不是经常有 ++a 这种操作吗？比如</p> <div class="language- extra-class"><pre class="language-text"><code>let a = 1
+console.log(++a) // '2'
+</code></pre></div><p>其实这个时候并不是 a 指向的 1 直接加了 1，而是 新建了一个 1+1 = 2 的值，再将 a 指向这个新建出来的 2，原来的那个 1 并没有发生改变，留由垃圾回收机制处理。也就是说不是 a 指向的值发生了改变，而是 a 变量指针指向了一个新的值，这和「基本类型的值是不可变的」这句话并不矛盾。</p> <h3 id="数据存放在栈区"><a href="#数据存放在栈区" aria-hidden="true" class="header-anchor">#</a> 数据存放在栈区</h3> <p>原始数据类型直接存储在栈(stack)中的简单数据段，占据空间小、大小固定，属于被频繁使用数据，所以放入栈中存储。</p> <h2 id="_2-引用数据类型"><a href="#_2-引用数据类型" aria-hidden="true" class="header-anchor">#</a> 2.引用数据类型</h2> <h3 id="值是可变的"><a href="#值是可变的" aria-hidden="true" class="header-anchor">#</a> 值是可变的</h3> <div class="language- extra-class"><pre class="language-text"><code>let a = { age : 20 }；
+a.age = 21；
+console.log(a.age)    //21
+</code></pre></div><h3 id="同时保存在栈内存和堆内存"><a href="#同时保存在栈内存和堆内存" aria-hidden="true" class="header-anchor">#</a> 同时保存在栈内存和堆内存</h3> <p>引用数据类型占据空间大，大小不固定，储存在堆内存，但是指向该引用数据类型的变量指针「a」是储存在栈内存中。 当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体。</p> <h2 id="二、数据的赋值"><a href="#二、数据的赋值" aria-hidden="true" class="header-anchor">#</a> 二、数据的赋值</h2> <p>基本数据类型的赋值为复制了一个新的值，对新变量的修改不会影响原变量</p> <div class="language- extra-class"><pre class="language-text"><code>let a = 1;
+let b = a;
+b++
+console.log(a)   // 1
+console.log(b)   // 2
+</code></pre></div><p>在内存中的变化如图：</p> <p><img src="http://p3.pstatp.com/large/pgc-image/2ef7e91a6cc845bd9244b08f15e3de8c" alt="JavaScript 数据类型与类型判断详解"></p> <p>但是引用数据类型就不一样，因为引用数据内型占用空间大，所以赋值操作是将新变量指针指向了原对象，修改其一都会影响到另一个。</p> <div class="language- extra-class"><pre class="language-text"><code>let a={id=1234}
+let b=a
+b.id=1222
+console.log(a.id) // 1222
+console.log(b.id) // 1222
+</code></pre></div><p>在内存中的变化如图：</p> <p><img src="http://p1.pstatp.com/large/pgc-image/875cb3c022f14d28bd8b6dbf54270762" alt="JavaScript 数据类型与类型判断详解"></p> <p>关于引用对象的拷贝又分为深拷贝和浅拷贝，限于篇幅就留给下篇文章了</p> <h2 id="三、检验数据类型"><a href="#三、检验数据类型" aria-hidden="true" class="header-anchor">#</a> 三、检验数据类型</h2> <h2 id="typeof"><a href="#typeof" aria-hidden="true" class="header-anchor">#</a> typeof</h2> <p>这应该初学者首次接触的类型判断方法了，它返回一个表示数据类型的字符串，返回结果包括：</p> <ul><li>number</li> <li>boolean</li> <li>string</li> <li>symbol</li> <li>object</li> <li>undefined</li> <li>function</li></ul> <p>但是不能判断 array 和 null</p> <div class="language- extra-class"><pre class="language-text"><code>typeof Symbol();
+// symbol  正确
+typeof '';
+// string 正确
+typeof 1;
+// number正确
+typeof true;
+//boolean 正确
+typeof undefined;
+//undefined 正确
+typeof new Function();
+// function 正确
+typeof null;
+//object 无效
+typeof [] ;
+//object 无效
+typeof new Date();
+//object 无效
+typeof new RegExp();
+//object 无效
+</code></pre></div><h4 id="typeof-缺点"><a href="#typeof-缺点" aria-hidden="true" class="header-anchor">#</a> typeof 缺点</h4> <p>可以看到 Date 和 RegExp 对象都只是被是被成了 object 对象，也就是说除 function 以外的对象都会被识别成 object ，这样显然是不合理的，这时就需要 instanceof 来进行判断。</p> <h2 id="instanceof"><a href="#instanceof" aria-hidden="true" class="header-anchor">#</a> instanceof</h2> <p>instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。 简单来说就是 instanceof 是用来判断 A 是否为 B 的实例，表达式为</p> <p><strong>A (object) instanceof B (constructor)</strong></p> <p>如果 A 是 B 的实例，则返回 true,否则返回 false。</p> <div class="language- extra-class"><pre class="language-text"><code>// 定义构造函数
+function C(){}
+function D(){}
+
+var o = new C();
+
+
+o instanceof C; // true，因为 Object.getPrototypeOf(o) === C.prototype
+
+
+o instanceof D; // false，因为 D.prototype 不在 o 的原型链上
+
+o instanceof Object; // true，因为 Object.prototype.isPrototypeOf(o) 返回 true
+
+C.prototype instanceof Object // true，同上
+
+C.prototype = {};
+
+var o2 = new C();
+
+o2 instanceof C; // true
+
+o instanceof C; // false，C.prototype 指向了一个空对象,这个空对象不在 o 的原型链上.
+
+D.prototype = new C(); // 继承
+var o3 = new D();
+o3 instanceof D; // true
+o3 instanceof C; // true 因为 C.prototype 现在在 o3 的原型链上
+</code></pre></div><p>现在就可以判断不同类别的对象了</p> <div class="language- extra-class"><pre class="language-text"><code>[] instanceof Array; //true
+{} instanceof Object;//true
+new Date() instanceof Date;//true
+new RegExp() instanceof RegExp//true
+</code></pre></div><h4 id="instanceof-的缺点"><a href="#instanceof-的缺点" aria-hidden="true" class="header-anchor">#</a> instanceof 的缺点</h4> <h4 id="_1-是否处于原型链上的判断方法不严谨"><a href="#_1-是否处于原型链上的判断方法不严谨" aria-hidden="true" class="header-anchor">#</a> 1.是否处于原型链上的判断方法不严谨</h4> <p>instanceof 方法判断的是是否处于原型链上，而不是是不是处于原型链最后一位，所以会出现下面这种情况：</p> <div class="language- extra-class"><pre class="language-text"><code>var arr = [1, 2, 3];
+console.log(arr instanceof Array) // true
+console.log(arr instanceof Object);  // true
+function fn(){}
+console.log(fn instanceof Function)// true
+console.log(fn instanceof Object)// true
+</code></pre></div><p>因为所有原型链的尽头都是 object，所以就造成了这种状况。当你自定义了一个类 A，并且继承了一个原生类 B，这个时候 <strong>检测结果未必准确</strong> ：</p> <div class="language- extra-class"><pre class="language-text"><code>A instanceof A // true
+A instanceof B // true
+A instanceof Object true
+</code></pre></div><h4 id="_2-无法判断字面量方式创建的基本数据类型"><a href="#_2-无法判断字面量方式创建的基本数据类型" aria-hidden="true" class="header-anchor">#</a> 2.无法判断字面量方式创建的基本数据类型</h4> <p>对于基本数据类型来说， <strong>字面量方式</strong> 创建出来的结果和 <strong>实例方式创建</strong> 的是 <strong>有一定区别</strong> 的</p> <div class="language- extra-class"><pre class="language-text"><code>console.log(1 instanceof Number)//false
+console.log(new Number(1) instanceof Number)//true
+</code></pre></div><p>从严格意义上来讲， <strong>只有实例创建出来的结果才是标准的对象数据类型值</strong> ，也是标准的 Number 这个类的一个实例；对于字面量方式创建出来的结果是基本的数据类型值，不是严谨的实例，但是由于 JS 的松散特点，导致了可以使用 Number.prototype 上提供的方法。</p> <h4 id="_3-无法检测-null-和-undefined"><a href="#_3-无法检测-null-和-undefined" aria-hidden="true" class="header-anchor">#</a> 3. 无法检测 null 和 undefined</h4> <p>对于特殊的数据类型 null 和 undefined，他们的所属类是 Null 和 Undefined，但是浏览器把这两个类保护起来了，不允许我们在外面访问使用。</p> <p><img src="http://p1.pstatp.com/large/pgc-image/7fc48414222d42e29f80a6ab751705f7" alt="JavaScript 数据类型与类型判断详解"></p> <h2 id="constructor"><a href="#constructor" aria-hidden="true" class="header-anchor">#</a> constructor</h2> <p>constructor 作用和 instanceof 非常相似。但 constructor 检测 Object 与 instanceof 不一样，还可以处理基本数据类型的检测。</p> <div class="language- extra-class"><pre class="language-text"><code>var aa=[1,2];
+console.log(aa.constructor===Array);//true
+console.log(aa.constructor===RegExp);//false
+console.log((1).constructor===Number);//true
+var reg=/^$/;
+console.log(reg.constructor===RegExp);//true
+console.log(reg.constructor===Object);//false
+</code></pre></div><h4 id="constructor-的缺点"><a href="#constructor-的缺点" aria-hidden="true" class="header-anchor">#</a> constructor 的缺点</h4> <h4 id="_1-无法检测-null-和-undefined"><a href="#_1-无法检测-null-和-undefined" aria-hidden="true" class="header-anchor">#</a> 1.无法检测 null 和 undefined</h4> <p>null 和 undefined 是无效的对象，因此是不会有 constructor 存在的，这两种类型的数据需要通过其他方式来判断。</p> <h4 id="_2-不稳定"><a href="#_2-不稳定" aria-hidden="true" class="header-anchor">#</a> 2.不稳定</h4> <p>函数的 constructor 是不稳定的，这个主要体现在把类的原型进行重写，在重写的过程中很有可能出现把之前的 constructor 给覆盖了，这样检测出来的结果就是不准确的，由此可知 instanceof 同样也存在这个问题。</p> <div class="language- extra-class"><pre class="language-text"><code>function Fn(){}
+Fn.prototype = new Array()
+var f = new Fn
+console.log(f.constructor)//Array
+</code></pre></div><h2 id="object-prototype-tostring-call"><a href="#object-prototype-tostring-call" aria-hidden="true" class="header-anchor">#</a> Object.prototype.toString.call()</h2> <p>这就是大名鼎鼎的全能方法，最准确最常用，据 MDN 描述</p> <p>每个对象都有一个 toString() 方法，当该对象被表示为一个文本值时，或者一个对象以预期的字符串方式引用时自动调用。默认情况下，toString() 方法被每个 Object 对象继承。如果此方法在自定义对象中未被覆盖，toString() 返回 &quot;[object type]&quot;，其中 type 是对象的类型。</p> <p>在 Number、String，Boolean，Array，RegExp、Date、Function 等对象上 toString() 方法都是被重写过了的，会按照一定的规则返回字符串。但是在 object 对象上，这个方式是返回当前方法执行的主体（方法中的 this）所属类的详细信息即&quot;[object Object]&quot;,其中第一个 object 代表当前实例是对象数据类型的(这个是固定的 onject)，第二个 Object 代表的是 this 所属的类型。</p> <p>为了每个对象都能通过 Object.prototype.toString() 来检测，需要以 Function.prototype.call() 或者 Function.prototype.apply() 的形式来调用，传递要检查的对象作为第一个参数，称为 thisArg。</p> <div class="language- extra-class"><pre class="language-text"><code>Object.prototype.toString.call('') ;   // [object String]
+Object.prototype.toString.call(1) ;    // [object Number]
+Object.prototype.toString.call(true) ; // [object Boolean]
+Object.prototype.toString.call(undefined) ; // [object Undefined]
+Object.prototype.toString.call(null) ; // [object Null]
+Object.prototype.toString.call(new Function()) ; // [object Function]
+Object.prototype.toString.call(new Date()) ; // [object Date]
+Object.prototype.toString.call([]) ; // [object Array]
+Object.prototype.toString.call(new RegExp()) ; // [object RegExp]
+Object.prototype.toString.call(new Error()) ; // [object Error]
+Object.prototype.toString.call(document) ; // [object HTMLDocument]
+Object.prototype.toString.call(window) ; //[object global] window是全局对象global的引用
+</code></pre></div><h2 id="总结"><a href="#总结" aria-hidden="true" class="header-anchor">#</a> 总结</h2> <table><thead><tr><th>判断方法</th> <th>缺点</th></tr></thead> <tbody><tr><td>typeof</td> <td>不能判断 null 和区分 array/Date/RegExp 等</td></tr> <tr><td>instanceof</td> <td>无法检测 null 和 undefined,未必准确，无法判断字面量方式创建的基本数据类型</td></tr> <tr><td>constructor</td> <td>无法检测 null 和 undefined，未必准确</td></tr> <tr><td>Object.prototype.toString.call()</td> <td>无</td></tr></tbody></table> <div id="vcomments"></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">3/9/2020, 9:26:29 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/blog/JavaScript/JavaScript 执行机制.html" class="prev">
+          JavaScript 执行机制
+        </a></span> <span class="next"><a href="/blog/JavaScript/Symbol.iterator.html">
+          Symbol.iterator
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.2ae5fea5.js" defer></script><script src="/blog/assets/js/2.6a053b7f.js" defer></script><script src="/blog/assets/js/23.f9a4866a.js" defer></script><script src="/blog/assets/js/4.2282b1d2.js" defer></script>
+  </body>
+</html>

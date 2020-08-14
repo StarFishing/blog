@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>富文本原理 | XiaoXin</title>
+    <meta name="description" content="Everything Is Esay">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+  <meta name="referrer" content="no-referrer">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.c98d2fd1.css" as="style"><link rel="preload" href="/blog/assets/js/app.2ae5fea5.js" as="script"><link rel="preload" href="/blog/assets/js/2.6a053b7f.js" as="script"><link rel="preload" href="/blog/assets/js/15.eb07cf8a.js" as="script"><link rel="preload" href="/blog/assets/js/4.2282b1d2.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.24a80492.js"><link rel="prefetch" href="/blog/assets/js/11.15dd0e81.js"><link rel="prefetch" href="/blog/assets/js/12.80be22dc.js"><link rel="prefetch" href="/blog/assets/js/13.8f3eea23.js"><link rel="prefetch" href="/blog/assets/js/14.4a737e05.js"><link rel="prefetch" href="/blog/assets/js/16.36d73765.js"><link rel="prefetch" href="/blog/assets/js/17.17bc1d4d.js"><link rel="prefetch" href="/blog/assets/js/18.dc604255.js"><link rel="prefetch" href="/blog/assets/js/19.dba65164.js"><link rel="prefetch" href="/blog/assets/js/20.b1e13490.js"><link rel="prefetch" href="/blog/assets/js/21.6661e953.js"><link rel="prefetch" href="/blog/assets/js/22.b46aff83.js"><link rel="prefetch" href="/blog/assets/js/23.f9a4866a.js"><link rel="prefetch" href="/blog/assets/js/24.abc1ee8e.js"><link rel="prefetch" href="/blog/assets/js/25.5c6de7f7.js"><link rel="prefetch" href="/blog/assets/js/26.f0a361d6.js"><link rel="prefetch" href="/blog/assets/js/27.170936fa.js"><link rel="prefetch" href="/blog/assets/js/28.7899db47.js"><link rel="prefetch" href="/blog/assets/js/29.a7194b2b.js"><link rel="prefetch" href="/blog/assets/js/3.ebad0fee.js"><link rel="prefetch" href="/blog/assets/js/30.b2dee036.js"><link rel="prefetch" href="/blog/assets/js/31.c1603b7d.js"><link rel="prefetch" href="/blog/assets/js/32.9b4872ae.js"><link rel="prefetch" href="/blog/assets/js/33.0c4a6762.js"><link rel="prefetch" href="/blog/assets/js/34.216a6e8c.js"><link rel="prefetch" href="/blog/assets/js/35.c4da4fba.js"><link rel="prefetch" href="/blog/assets/js/36.4004ae2a.js"><link rel="prefetch" href="/blog/assets/js/37.970402d3.js"><link rel="prefetch" href="/blog/assets/js/38.5940f18d.js"><link rel="prefetch" href="/blog/assets/js/39.a9f7a9d7.js"><link rel="prefetch" href="/blog/assets/js/40.cab95d99.js"><link rel="prefetch" href="/blog/assets/js/41.c43504e7.js"><link rel="prefetch" href="/blog/assets/js/42.fea032c4.js"><link rel="prefetch" href="/blog/assets/js/43.d981b84c.js"><link rel="prefetch" href="/blog/assets/js/44.e469946c.js"><link rel="prefetch" href="/blog/assets/js/45.498af734.js"><link rel="prefetch" href="/blog/assets/js/46.5c5381de.js"><link rel="prefetch" href="/blog/assets/js/47.ade54cb1.js"><link rel="prefetch" href="/blog/assets/js/48.543817c4.js"><link rel="prefetch" href="/blog/assets/js/49.170032f2.js"><link rel="prefetch" href="/blog/assets/js/5.bbd49a80.js"><link rel="prefetch" href="/blog/assets/js/50.fdcebebc.js"><link rel="prefetch" href="/blog/assets/js/51.4688ae90.js"><link rel="prefetch" href="/blog/assets/js/52.2f859e2a.js"><link rel="prefetch" href="/blog/assets/js/53.46f20752.js"><link rel="prefetch" href="/blog/assets/js/54.8c4e2bde.js"><link rel="prefetch" href="/blog/assets/js/55.966bf42b.js"><link rel="prefetch" href="/blog/assets/js/56.93296c52.js"><link rel="prefetch" href="/blog/assets/js/57.c0e84a0a.js"><link rel="prefetch" href="/blog/assets/js/58.9c4fac4f.js"><link rel="prefetch" href="/blog/assets/js/59.18ed476c.js"><link rel="prefetch" href="/blog/assets/js/6.3b02335f.js"><link rel="prefetch" href="/blog/assets/js/60.e3ca94f3.js"><link rel="prefetch" href="/blog/assets/js/61.d40e0732.js"><link rel="prefetch" href="/blog/assets/js/62.952d91f1.js"><link rel="prefetch" href="/blog/assets/js/63.03715906.js"><link rel="prefetch" href="/blog/assets/js/64.6dce55d6.js"><link rel="prefetch" href="/blog/assets/js/65.fea30c40.js"><link rel="prefetch" href="/blog/assets/js/66.21bee15e.js"><link rel="prefetch" href="/blog/assets/js/7.64ef9703.js"><link rel="prefetch" href="/blog/assets/js/8.c33961b5.js"><link rel="prefetch" href="/blog/assets/js/9.61bba5ba.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.c98d2fd1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">XiaoXin</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/HTML+CSS/" class="nav-link router-link-active">HTML+CSS</a></div><div class="nav-item"><a href="/blog/JavaScript/" class="nav-link">JavaScript</a></div><div class="nav-item"><a href="/blog/React/" class="nav-link">React</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/Vue/VuePress/" class="nav-link">VuePress</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/electron/" class="nav-link">electron</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/vue官方文档解读/" class="nav-link">vue官方文档解读</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/关于双向绑定的探索/" class="nav-link">关于双向绑定的探索</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/源码学习/" class="nav-link">源码学习</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/问题记录/" class="nav-link">问题记录</a></li></ul></div></div><div class="nav-item"><a href="/blog/命名规范/" class="nav-link">命名规范</a></div><div class="nav-item"><a href="/blog/图床/" class="nav-link">图床</a></div><div class="nav-item"><a href="/blog/大前端/" class="nav-link">大前端</a></div> <a href="https://github.com/starfishing" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/HTML+CSS/" class="nav-link router-link-active">HTML+CSS</a></div><div class="nav-item"><a href="/blog/JavaScript/" class="nav-link">JavaScript</a></div><div class="nav-item"><a href="/blog/React/" class="nav-link">React</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/Vue/VuePress/" class="nav-link">VuePress</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/electron/" class="nav-link">electron</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/vue官方文档解读/" class="nav-link">vue官方文档解读</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/关于双向绑定的探索/" class="nav-link">关于双向绑定的探索</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/源码学习/" class="nav-link">源码学习</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/问题记录/" class="nav-link">问题记录</a></li></ul></div></div><div class="nav-item"><a href="/blog/命名规范/" class="nav-link">命名规范</a></div><div class="nav-item"><a href="/blog/图床/" class="nav-link">图床</a></div><div class="nav-item"><a href="/blog/大前端/" class="nav-link">大前端</a></div> <a href="https://github.com/starfishing" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/blog/HTML+CSS/" class="sidebar-link">笔记</a></li><li><a href="/blog/HTML+CSS/CSS3伪类valid和invalid实现表单校验.html" class="sidebar-link">CSS3 伪类:valid 和:invalid 实现表单校验</a></li><li><a href="/blog/HTML+CSS/CSS加载与阻塞.html" class="sidebar-link">CSS 加载与阻塞</a></li><li><a href="/blog/HTML+CSS/Img标签实现图片的水平垂直居中.html" class="sidebar-link">Img 标签实现图片的水平垂直居中</a></li><li><a href="/blog/HTML+CSS/css3 新增伪类.html" class="sidebar-link">css3 新增伪类</a></li><li><a href="/blog/HTML+CSS/如何判断DOM元素出现在主屏可视区域——IntersectionObserver.html" class="sidebar-link">IntersectionObserver</a></li><li><a href="/blog/HTML+CSS/富文本原理.html" class="active sidebar-link">富文本原理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/HTML+CSS/富文本原理.html#缘起" class="sidebar-link">缘起</a></li><li class="sidebar-sub-header"><a href="/blog/HTML+CSS/富文本原理.html#前置知识" class="sidebar-link">前置知识</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/HTML+CSS/富文本原理.html#contenteditable-属性" class="sidebar-link">contenteditable 属性</a></li><li class="sidebar-sub-header"><a href="/blog/HTML+CSS/富文本原理.html#document-execcommand-方法" class="sidebar-link">document.execCommand 方法</a></li><li class="sidebar-sub-header"><a href="/blog/HTML+CSS/富文本原理.html#selection-和-range-对象" class="sidebar-link">Selection 和 Range 对象</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/HTML+CSS/富文本原理.html#目标" class="sidebar-link">目标</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/HTML+CSS/富文本原理.html#起步" class="sidebar-link">起步</a></li><li class="sidebar-sub-header"><a href="/blog/HTML+CSS/富文本原理.html#加粗" class="sidebar-link">加粗</a></li><li class="sidebar-sub-header"><a href="/blog/HTML+CSS/富文本原理.html#段落" class="sidebar-link">段落</a></li><li class="sidebar-sub-header"><a href="/blog/HTML+CSS/富文本原理.html#插入链接" class="sidebar-link">插入链接</a></li><li class="sidebar-sub-header"><a href="/blog/HTML+CSS/富文本原理.html#插入图片" class="sidebar-link">插入图片</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/HTML+CSS/富文本原理.html#进阶" class="sidebar-link">进阶</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/HTML+CSS/富文本原理.html#图片拉伸" class="sidebar-link">图片拉伸</a></li><li class="sidebar-sub-header"><a href="/blog/HTML+CSS/富文本原理.html#操纵光标" class="sidebar-link">操纵光标</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/HTML+CSS/富文本原理.html#结语" class="sidebar-link">结语</a></li></ul></li><li><a href="/blog/HTML+CSS/残酷，无情--audio.html" class="sidebar-link">残酷，无情--audio</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="富文本原理"><a href="#富文本原理" aria-hidden="true" class="header-anchor">#</a> 富文本原理</h1> <h2 id="缘起"><a href="#缘起" aria-hidden="true" class="header-anchor">#</a> 缘起</h2> <p>最近产品想让我在富文本里加个旋转图片的功能，我一想 🤔，就觉得事情并不简单，因为印象中好像没见过这种操作。果然，经过一番百度之后，确实没怎么看到相关信息，这也就意味着要自己动手丰衣足食了 😢。但我自己对富文本又没什么了解，所以顺带稍微看了下富文本的实现方式，特此来沉淀一下，还是那句话不喜勿喷哈 🙄。
+ok，这里先简要说下为什么会有富文本这种东西吧 🤓！大概可能也许是因为有一天产品用着用着 <code>textarea</code> 感觉太单调了，单纯的文字已经无法表达他们内心的需求 🤯，于是就想来点样式，顺便加个图片，来篇图文并茂的文章，就像小型 Word 那样，就再好不过了！于是富文本就这样诞生了，开发者们也纷纷开始了踩坑之旅 🕳🕳🕳。</p> <h2 id="前置知识"><a href="#前置知识" aria-hidden="true" class="header-anchor">#</a> 前置知识</h2> <p>好了，交代完了背景，让我们先补充一些基础知识吧，不懂的请务必不要跳过 🧐！</p> <h3 id="contenteditable-属性"><a href="#contenteditable-属性" aria-hidden="true" class="header-anchor">#</a> contenteditable 属性</h3> <p>假如我们给一个标签加上 <code>contenteditable=&quot;true&quot;</code> 的属性，就像这样：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;div contenteditable=&quot;true&quot;&gt;&lt;/div&gt;
+复制代码
+</code></pre></div><p>那么在这个 <code>div</code> 中我们就可以对其进行任意编辑了。如果想要插入的子节点不可编辑，我们只需要把子节点的属性设置为 <code>contenteditable=&quot;false&quot;</code> 即可，就像这样：</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">contenteditable</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>这是可编辑的<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">contenteditable</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>false<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>这是不可编辑的<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+复制代码
+</code></pre></div><p>该属性最早是在 IE 上实现的（厉害哦 👍），且可以作用于其它标签，不限于 <code>div</code>，大家应该或多或少都听说过这个属性。</p> <h3 id="document-execcommand-方法"><a href="#document-execcommand-方法" aria-hidden="true" class="header-anchor">#</a> document.execCommand 方法</h3> <p>既然我们可以对上面的 <code>div</code> 随意编辑，那具体怎么编辑呢，目前好像也还是只能输入文本，要怎样才能进行其他操作呢（比如加粗、倾斜、插入图片等等）🤔？其实浏览器给我们提供了这样的一个方法 <code>document.execCommand</code>，通过它我们就能够操纵上面的可编辑区。具体语法如下：</p> <div class="language- extra-class"><pre class="language-text"><code>// document.execCommand(命令名称，是否展示用户界面，命令需要的额外参数)
+document.execCommand(aCommandName, aShowDefaultUI, aValueArgument)
+复制代码
+</code></pre></div><p>其中第一个参数就是一些命令名称，具体的可以查看 MDN；第二个参数写死为 <code>false</code> 就行了，因为早前 IE 有这样一个参数，为了兼容吧，不过这个参数在现代浏览器中是没有影响的；第三个参数就是一些命令可能需要额外的参数，比如插入图片就要多传个 <code>url</code> 或 <code>base64</code> 的参数，没有的话传个 <code>null</code> 就行。
+我们简要列举下它的几个使用方式，大家就知道怎么用了 👇：</p> <div class="language- extra-class"><pre class="language-text"><code>// 加粗
+document.execCommand('bold', false, null);
+// 添加图片
+document.execCommand('insertImage', false, url || base64);
+// 把一段文字用 p 标签包裹起来
+document.execCommand('formatblock', false, '&lt;p&gt;');
+复制代码
+</code></pre></div><p>这个命令就是富文本的核心（所以务必记住），浏览器把大部分我们能想到的功能也都实现了，当然各浏览器之间还是有差异的，这里就不考虑了。</p> <h3 id="selection-和-range-对象"><a href="#selection-和-range-对象" aria-hidden="true" class="header-anchor">#</a> Selection 和 Range 对象</h3> <p>我们在执行 <code>document.execCommand</code> 这个命令之前首先要知道对谁执行，所以这里会有一个选区的概念，也就是 <code>Selection</code> 对象，它用来表示用户选择的范围或光标位置（光标可以看做是范围重合的特殊状态），一个页面用户可能选择多个范围（比如 Firefox）。也就是说 <code>Selection</code> 包含一个或多个 <code>Range</code> 对象（<code>Selection</code> 可以说是 <code>Range</code> 的集合），当然对于富文本编辑器来说，一般情况下，我们只会有一个选择区域，也就是一个 <code>Range</code> 对象，事实上大部分情况也是如此。
+所以通常我们可以用 <code>let range = window.getSelection().getRangeAt(0)</code> 来获取选中的内容信息（<code>getRangeAt</code> 接受一个索引值，因为会有多个 <code>Range</code>，而现在只有一个，所以写 0）。
+看得一头雾水 😴？没关系，看下面两张图就懂了 😮：</p> <p>![img](data:image/svg+xml;utf8,&lt;?xml version=&quot;1.0&quot;?&gt;<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="496"></svg>)</p> <p><img src="https://user-gold-cdn.xitu.io/2019/6/18/16b6a1a61fa6f471?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p> <p>一句话说就是：通过上面那句命令我们能够获取到当前的选中信息，一般会先保存下来，然后在需要的时候还原。此外 <code>Selection</code> 对象还有几个常用的方法，<code>addRange</code>、<code>removeAllRanges</code>、<code>collapse</code> 和 <code>collapseToEnd</code> 等等。
+这个知识点是很重要的，因为它让我们有了操纵光标的能力（比如插入内容之后设置光标的位置），不过这篇文章中我并没有去深入它，只是浅出 😏。</p> <h2 id="目标"><a href="#目标" aria-hidden="true" class="header-anchor">#</a> 目标</h2> <p>开篇一顿扯，下面让我们抓紧时间做一个属于自己的富文本吧 💪，大概会包含以下几个功能：加粗、段落、H1、水平线、无序列表、插入链接、插入图片、后退一步、向前一步等等。🆗，Let's do it!</p> <h3 id="起步"><a href="#起步" aria-hidden="true" class="header-anchor">#</a> 起步</h3> <p>首先一个富文本大体分为两个区域，一个是按钮区，一个是编辑区。所以它的大致结构就像下面这样：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
+    &lt;div class=&quot;xr-editor&quot;&gt;
+        &lt;!--按钮区--&gt;
+        &lt;div class=&quot;nav&quot;&gt;
+            &lt;button&gt;加粗&lt;/button&gt;
+            ...
+        &lt;/div&gt;
+        &lt;!--编辑区--&gt;
+        &lt;div class=&quot;editor&quot; contenteditable=&quot;true&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;!--全部样式就这些，这里就都先给出来了--&gt;
+&lt;style lang=&quot;scss&quot;&gt;
+.xr-editor {
+  margin: 50px auto;
+  width: 1000px;
+  .nav {
+    display: flex;
+    button {
+      cursor: pointer;
+    }
+    &amp;__img {
+      position: relative;
+      input {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+      }
+    }
+  }
+  .row {
+    display: flex;
+    width: 100%;
+    height: 300px;
+  }
+  .editor {
+    flex: 1;
+    position: relative;
+    margin-right: 20px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #000;
+    overflow-y: scroll;
+    img {
+      max-width: 300px;
+      max-height: 300px;
+      vertical-align: middle;
+    }
+  }
+  .content {
+    flex: 1;
+    border: 1px solid #000;
+    word-break: break-all;
+    word-wrap: break-word;
+    overflow: scroll;
+  }
+}
+&lt;/style&gt;
+复制代码
+</code></pre></div><p>嗯，起步工作到此结束，接下来就可以直接开始实现功能了 😬。</p> <h3 id="加粗"><a href="#加粗" aria-hidden="true" class="header-anchor">#</a> 加粗</h3> <p>现在假如我们要实现加粗的效果，该怎么做呢？很简单，只要在点击加粗按钮的时候执行 <code>document.execCommand('bold', false, null)</code> 这句话，就能达到加粗的效果，就像下面这样：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
+    &lt;div class=&quot;nav&quot;&gt;
+        &lt;button @click=&quot;execCommand&quot;&gt;加粗&lt;/button&gt;
+    &lt;/div&gt;
+    ...
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+  name: 'XrEditor',
+  methods: {
+    execCommand() {
+      document.execCommand('bold', false, null);
+    }
+  }
+};
+&lt;/script&gt;
+复制代码
+</code></pre></div><p>让我们运行一下看看效果：</p> <p>![img](data:image/svg+xml;utf8,&lt;?xml version=&quot;1.0&quot;?&gt;<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="352" height="420"></svg>)</p> <p>嗯，是的，就是这么简单的一句话就能搞定 😒。
+当然了，我们开篇也说了我们的一切命令都是基于 <code>document.execCommand</code> 的，所以我们先小小改写一下上面代码中的 <code>execCommand</code> 方法，就像下面这样：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
+    &lt;div class=&quot;nav&quot;&gt;
+        &lt;button @click=&quot;execCommand('bold')&quot;&gt;加粗&lt;/button&gt;
+    &lt;/div&gt;
+    ...
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+  name: 'XrEditor',
+  methods: {
+    execCommand(name, args = null) {
+    	document.execCommand(name, false, args);
+    }
+  }
+};
+&lt;/script&gt;
+复制代码
+</code></pre></div><p>这样一来代码就更具通用性了。实现列表、水平线、前进、后退功能和加粗是一样样的，只需传入不同的命令名即可，就像下面这样，这里就不一一赘述了：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;button @click=&quot;execCommand('insertUnorderedList')&quot;&gt;无序列表&lt;/button&gt;
+&lt;button @click=&quot;execCommand('insertHorizontalRule')&quot;&gt;水平线&lt;/button&gt;
+&lt;button @click=&quot;execCommand('undo')&quot;&gt;后退&lt;/button&gt;
+&lt;button @click=&quot;execCommand('redo')&quot;&gt;前进&lt;/button&gt;
+复制代码
+</code></pre></div><p>顺带给大家说几个注意点 ✍️：</p> <ol><li>有的同学可能用的不是 <code>button</code> 标签，然后执行命令就会无效，是因为点击其他标签大多都会造成先失去焦点（或者不知不觉就突然失去焦点了），再执行点击事件，此时没有选区或光标所以会没有效果，这点要留意一下。</li> <li>我们执行的是原生的 <code>document.execCommand</code> 方法，浏览器自身会对 <code>contenteditable</code> 这个可编辑区维护一个 <code>undo</code> 栈和一个 <code>redo</code> 栈，所以我们才能执行前进和后退的操作，如果我们改写了原生方法，就会破坏原有的栈结构，这时就需要自己去维护，那就麻烦了。</li> <li><code>style</code> 里面如果加上 <code>scope</code> 的话，里面的样式对编辑区的内容是不生效的，因为编辑区里面是后来才创建的元素，所以要么删了 <code>scope</code>，要么用 <code>/deep/</code> 解决（Vue 是这样）。</li></ol> <h3 id="段落"><a href="#段落" aria-hidden="true" class="header-anchor">#</a> 段落</h3> <p>这个功能就是把光标所在行的文字用 <code>p</code> 标签包裹起来，为了演示方便，我们顺便把编辑区的 <code>html</code> 结构打印出来，所以让我们稍微改一下代码，就像下面这样：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
+    &lt;div class=&quot;xr-editor&quot;&gt;
+        &lt;div class=&quot;nav&quot;&gt;
+            &lt;button @click=&quot;execCommand('bold')&quot;&gt;加粗&lt;/button&gt;
+            &lt;button @click=&quot;execCommand('formatBlock', '&lt;p&gt;')&quot;&gt;段落&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;editor&quot; contenteditable=&quot;true&quot; @input=&quot;print&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;content&quot;&gt;{{ html }}&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+  name: 'XrEditor',
+  data() {
+    return {
+      html: ''
+    };
+  },
+  methods: {
+    execCommand(name, args = null) {
+      document.execCommand(name, false, args);
+    },
+    print() {
+      this.html = document.querySelector('.editor').innerHTML;
+    }
+  }
+};
+&lt;/script&gt;
+复制代码
+</code></pre></div><p>运行效果如下：</p> <p>![img](data:image/svg+xml;utf8,&lt;?xml version=&quot;1.0&quot;?&gt;<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="419" height="236"></svg>)</p> <p>怎么样，是不是也很 easy，同理，<code>h1</code> ~ <code>h6</code> 也是一样的，命令为 <code>execCommand('formatBlock', '')</code>，也不赘述了。</p> <h3 id="插入链接"><a href="#插入链接" aria-hidden="true" class="header-anchor">#</a> 插入链接</h3> <p>这个功能因为需要第三个参数，所以我们一般会给个提示框获取用户输入，然后再执行 <code>execCommand('createLink', 链接地址)</code>，代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;button @click=&quot;createLink&quot;&gt;链接&lt;/button&gt;
+复制代码
+createLink() {
+  let url = window.prompt('请输入链接地址');
+  if (url) this.execCommand('createLink', url);
+}
+复制代码
+</code></pre></div><p>效果如下：</p> <p>![img](data:image/svg+xml;utf8,&lt;?xml version=&quot;1.0&quot;?&gt;<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="420" height="258"></svg>)</p> <p>插入图片链接也是异曲同工，只不过命令名不一样而已：</p> <div class="language- extra-class"><pre class="language-text"><code>insertImgLink() {
+    let url = window.prompt('请输入图片地址');
+    if (url) this.execCommand('insertImage', url);
+}
+复制代码
+</code></pre></div><h3 id="插入图片"><a href="#插入图片" aria-hidden="true" class="header-anchor">#</a> 插入图片</h3> <p>图片除了可以通过添加地址的形式外，还可以添加 base64 格式的图片，这里我们通过 <code>readAsDataURL(file)</code> 来读取图片，并执行 <code>execCommand('insertImage', base64)</code> 就大功告成啦，具体代码如下，并不复杂：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;button class=&quot;nav__img&quot;&gt;插入图片
+    &lt;!--这个 input 是隐藏的--&gt;
+    &lt;input type=&quot;file&quot; accept=&quot;image/gif, image/jpeg, image/png&quot; @change=&quot;insertImg&quot;&gt;
+&lt;/button&gt;
+复制代码
+insertImg(e) {
+    let reader = new FileReader();
+    let file = e.target.files[0];
+    reader.onload = () =&gt; {
+        let base64Img = reader.result;
+        this.execCommand('insertImage', base64Img);
+        document.querySelector('.nav__img input').value = ''; // 解决同一张图片上传无效的问题
+    };
+    reader.readAsDataURL(file);
+}
+复制代码
+</code></pre></div><p>运行一下，看看效果：</p> <p>![img](data:image/svg+xml;utf8,&lt;?xml version=&quot;1.0&quot;?&gt;<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="420" height="263"></svg>)</p> <p>这应该也不是很难。当然了，你也可以先上传到服务器处理返回 <code>url</code> 地址再插入也是可以的。
+👌 至此，一个简易版的富文本就完成了（当然了 bug 也是有的 🤭，不过并不妨碍我们理解），具体代码可以参考 npm 上的 <code>pell</code> 包，它已经是个极简版的了。</p> <h2 id="进阶"><a href="#进阶" aria-hidden="true" class="header-anchor">#</a> 进阶</h2> <p>其实富文本对文本的操作大多都可以用原生命令来实现，但是对图片的操作也许就不那么容易了，来个拉伸、旋转啥的就够我们折腾了 🤨，所以这里以图片拉伸为例子着重讲解一下。</p> <h3 id="图片拉伸"><a href="#图片拉伸" aria-hidden="true" class="header-anchor">#</a> 图片拉伸</h3> <p>我们先看下大致效果，大家也可以先停下来思考一分钟看看如何实现 🤔：</p> <p>![img](data:image/svg+xml;utf8,&lt;?xml version=&quot;1.0&quot;?&gt;<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="419" height="255"></svg>)</p> <p>👌，首先我们要知道的是图片已经在编辑区了，所以当用户点击编辑区里面的图片时我们需要做些事件监听并有所处理，具体思路如下（这部分代码较多，不想看的可以略过，但标题要看）：</p> <h4 id="_1-判断用户点击的是否是编辑区里面的图片"><a href="#_1-判断用户点击的是否是编辑区里面的图片" aria-hidden="true" class="header-anchor">#</a> 1. 判断用户点击的是否是编辑区里面的图片</h4> <p>这个就是看点击事件 <code>e.target.tagName</code> 是不是 <code>img</code> 标签了，代码如下，应该比较简单：</p> <div class="language- extra-class"><pre class="language-text"><code>mounted() {
+    this.editor = document.querySelector('.editor');
+    this.editor.addEventListener('click', this.handleClick);
+},
+methods: {
+    handleClick(e) {
+        if (
+            e.target &amp;&amp;
+            e.target.tagName &amp;&amp;
+            e.target.tagName.toUpperCase() === 'IMG'
+        ) {
+            this.handleClickImg(e.target);
+        }
+    }
+}
+复制代码
+</code></pre></div><h4 id="_2-在点击的图片上创建个大小一样的-div"><a href="#_2-在点击的图片上创建个大小一样的-div" aria-hidden="true" class="header-anchor">#</a> 2. 在点击的图片上创建个大小一样的 div</h4> <p>如果点击的是一个图片，那我们就创建一个 <code>div</code> ，暂且把这个 <code>div</code> 叫做蒙层吧，顺便先看张示意图：</p> <p>![img](data:image/svg+xml;utf8,&lt;?xml version=&quot;1.0&quot;?&gt;<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="656" height="818"></svg>)</p> <p>也就是动态创建一个蒙层（和图片一样大小）以及四个拖拽顶点，并定位到和图片一样的位置，代码如下（代码有点多，可跳过，知道大致意思就行 😬）：</p> <div class="language- extra-class"><pre class="language-text"><code>handleClickImg(img) {
+    this.nowImg = img;
+    this.showOverlay();
+}
+showOverlay() {
+    // 添加蒙层
+    this.overlay = document.createElement('div');
+    this.editor.appendChild(this.overlay);
+    // 定位蒙层和大小
+    this.repositionOverlay();
+},
+repositionOverlay() {
+    let imgRect = this.nowImg.getBoundingClientRect();
+    let editorRect = this.editor.getBoundingClientRect();
+    // 设置蒙层宽高和位置
+    Object.assign(this.overlay.style, {
+        position: 'absolute',
+        top: `${imgRect.top - editorRect.top + this.editor.scrollTop}px`,
+        left: `${imgRect.left -
+          editorRect.left -
+          1 +
+          this.editor.scrollLeft}px`,
+        width: `${imgRect.width}px`,
+        height: `${imgRect.height}px`,
+        boxSizing: 'border-box',
+        border: '1px dashed red'
+    });
+    // 添加四个顶点拖拽框
+    this.createBox();
+},
+createBox() {
+    this.boxes = [];
+    this.addBox('nwse-resize'); // top left
+    this.addBox('nesw-resize'); // top right
+    this.addBox('nwse-resize'); // bottom right
+    this.addBox('nesw-resize'); // bottom left
+    this.positionBoxes(); // 设置四个拖拽框位置
+},
+addBox(cursor) {
+    const box = document.createElement('div');
+    Object.assign(box.style, {
+        position: 'absolute',
+        height: '12px',
+        width: '12px',
+        backgroundColor: 'white',
+        border: '1px solid #777',
+        boxSizing: 'border-box',
+        opacity: '0.80'
+    });
+    box.style.cursor = cursor;
+    box.addEventListener('mousedown', this.handleMousedown);  // 顺便添加事件
+    this.overlay.appendChild(box);
+    this.boxes.push(box);
+},
+positionBoxes() {
+    let handleXOffset = `-6px`;
+    let handleYOffset = `-6px`;
+    [{ left: handleXOffset, top: handleYOffset },
+    { right: handleXOffset, top: handleYOffset },
+    { right: handleXOffset, bottom: handleYOffset },
+    { left: handleXOffset, bottom: handleYOffset }].forEach((pos, idx) =&gt; {
+        Object.assign(this.boxes[idx].style, pos);
+    });
+},
+复制代码
+</code></pre></div><h4 id="_3-在四个顶点框上添加拖拽事件"><a href="#_3-在四个顶点框上添加拖拽事件" aria-hidden="true" class="header-anchor">#</a> 3. 在四个顶点框上添加拖拽事件</h4> <p>这里我们会在四个顶点监听 <code>mousedown</code> 事件，按下鼠标时，首先会改变鼠标样式（就是鼠标会变成调整大小的那种图标），然后监听 <code>mousemove</code> 和 <code>mouseup</code> 事件，计算出水平拖拽距离，然后重新设置图片大小和浮层大小，大概这么个意思，简要代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>handleMousedown(e) {
+    this.dragBox = e.target;
+    this.dragStartX = e.clientX;
+    this.preDragWidth = this.nowImg.width;
+    this.setCursor(this.dragBox.style.cursor);
+    document.addEventListener('mousemove', this.handleDrag);
+    document.addEventListener('mouseup', this.handleMouseup);
+},
+handleDrag(e) {
+    // 计算水平拖动距离
+    const deltaX = e.clientX - this.dragStartX;
+    // 修改图片大小
+    if (this.dragBox === this.boxes[0] || this.dragBox ===     this.boxes[3]) { // 左边的两个框
+        this.nowImg.width = Math.round(this.preDragWidth - deltaX);
+    } else { // 右边的两个框
+        this.nowImg.width = Math.round(this.preDragWidth + deltaX);
+    }
+    // 同时修改蒙层大小
+    this.repositionOverlay();
+},
+handleMouseup() {
+    this.setCursor('');
+    // 拖拽结束移除事件监听
+    document.removeEventListener('mousemove', this.handleDrag);
+    document.removeEventListener('mouseup', this.handleMouseup);
+},
+setCursor(value) {
+    // 设置鼠标样式
+    [document.body, this.nowImg].forEach(el =&gt; {
+        el.style.cursor = value;
+    });
+}
+复制代码
+</code></pre></div><p>当然问题还是有的，不过我们知道这个思路就行。具体代码可以去看下 npm 上的 <code>quill-image-resize-module</code> 包，我也是按照这个包的思路来讲解的 😂。。。</p> <h3 id="操纵光标"><a href="#操纵光标" aria-hidden="true" class="header-anchor">#</a> 操纵光标</h3> <p>除了不好对图片进行处理外，光标应该也是一大坑，你可能不知道什么时候就失去焦点了，此时再点击按钮执行命令就无效了；有时你又需要还原或设置光标的位置，比如插入图片后，光标要设置到图片后面等等之类的。
+所以我们需要具有控制光标的能力，具体操作就是在点击按钮之前我们可以先存储当前光标的状态，执行完命令或者在需要的时候后再还原或设置光标的状态即可。由于在 chrome 中，失去焦点并不会清除 <code>Seleciton</code> 对象和 <code>Range</code> 对象，所以就像我一开始说的我没怎么去了解 🙄。。。这里就只简要展示两个方法给大家看下：</p> <div class="language- extra-class"><pre class="language-text"><code>function saveSelection() { // 保存当前Range对象
+    let selection = window.getSelection();
+    if(selection.rangeCount &gt; 0){
+        return sel.getRangeAt(0);
+    }
+    return null;
+};
+let selectedRange = saveSelection();
+function restoreSelection() {
+    let selection = window.getSelection();
+    if (selectedRange) {
+        selection.removeAllRanges();  // 清空所有 Range 对象
+        selection.addRange(selectedRange); // 恢复保存的 Range
+    }
+}
+复制代码
+</code></pre></div><p>以上就是今天所要分享的内容，感谢你的阅读，大赞无疆 👀 。。。。</p> <h2 id="结语"><a href="#结语" aria-hidden="true" class="header-anchor">#</a> 结语</h2> <p>回到开头我们讲的那个需求，关于图片旋转的，根据上面的思路，你可以在蒙层上加个旋转图标，并添加点击事件，然后修改图片和蒙层 <code>transform</code> 属性，当然了位置也要变，可能需要些计算，我也没试过，不知道效果咋样 😂。
+另外一种方法就是在插入图片之前先对图片进行处理（比如多一步类似裁剪的功能）再上传，这样就可以不用在编辑区里面处理图片啦，嘿嘿，目前我就想到这两种方案了，实际工作中采用的是第二种方式，因为产品的需求不止于旋转 😭。
+最后的最后，不知道大家有没有更好的方法来对图片或内容进行处理，欢迎在下面留言探讨，See you👋。
+<div id="vcomments"></div></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">1/10/2020, 9:06:25 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/blog/HTML+CSS/如何判断DOM元素出现在主屏可视区域——IntersectionObserver.html" class="prev">
+          IntersectionObserver
+        </a></span> <span class="next"><a href="/blog/HTML+CSS/残酷，无情--audio.html">
+          残酷，无情--audio
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.2ae5fea5.js" defer></script><script src="/blog/assets/js/2.6a053b7f.js" defer></script><script src="/blog/assets/js/15.eb07cf8a.js" defer></script><script src="/blog/assets/js/4.2282b1d2.js" defer></script>
+  </body>
+</html>

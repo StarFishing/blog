@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>使用 Node 脚本对前端国际化（二） | XiaoXin</title>
+    <meta name="description" content="Everything Is Esay">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+  <meta name="referrer" content="no-referrer">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.c98d2fd1.css" as="style"><link rel="preload" href="/blog/assets/js/app.2ae5fea5.js" as="script"><link rel="preload" href="/blog/assets/js/2.6a053b7f.js" as="script"><link rel="preload" href="/blog/assets/js/43.d981b84c.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.24a80492.js"><link rel="prefetch" href="/blog/assets/js/11.15dd0e81.js"><link rel="prefetch" href="/blog/assets/js/12.80be22dc.js"><link rel="prefetch" href="/blog/assets/js/13.8f3eea23.js"><link rel="prefetch" href="/blog/assets/js/14.4a737e05.js"><link rel="prefetch" href="/blog/assets/js/15.eb07cf8a.js"><link rel="prefetch" href="/blog/assets/js/16.36d73765.js"><link rel="prefetch" href="/blog/assets/js/17.17bc1d4d.js"><link rel="prefetch" href="/blog/assets/js/18.dc604255.js"><link rel="prefetch" href="/blog/assets/js/19.dba65164.js"><link rel="prefetch" href="/blog/assets/js/20.b1e13490.js"><link rel="prefetch" href="/blog/assets/js/21.6661e953.js"><link rel="prefetch" href="/blog/assets/js/22.b46aff83.js"><link rel="prefetch" href="/blog/assets/js/23.f9a4866a.js"><link rel="prefetch" href="/blog/assets/js/24.abc1ee8e.js"><link rel="prefetch" href="/blog/assets/js/25.5c6de7f7.js"><link rel="prefetch" href="/blog/assets/js/26.f0a361d6.js"><link rel="prefetch" href="/blog/assets/js/27.170936fa.js"><link rel="prefetch" href="/blog/assets/js/28.7899db47.js"><link rel="prefetch" href="/blog/assets/js/29.a7194b2b.js"><link rel="prefetch" href="/blog/assets/js/3.ebad0fee.js"><link rel="prefetch" href="/blog/assets/js/30.b2dee036.js"><link rel="prefetch" href="/blog/assets/js/31.c1603b7d.js"><link rel="prefetch" href="/blog/assets/js/32.9b4872ae.js"><link rel="prefetch" href="/blog/assets/js/33.0c4a6762.js"><link rel="prefetch" href="/blog/assets/js/34.216a6e8c.js"><link rel="prefetch" href="/blog/assets/js/35.c4da4fba.js"><link rel="prefetch" href="/blog/assets/js/36.4004ae2a.js"><link rel="prefetch" href="/blog/assets/js/37.970402d3.js"><link rel="prefetch" href="/blog/assets/js/38.5940f18d.js"><link rel="prefetch" href="/blog/assets/js/39.a9f7a9d7.js"><link rel="prefetch" href="/blog/assets/js/4.2282b1d2.js"><link rel="prefetch" href="/blog/assets/js/40.cab95d99.js"><link rel="prefetch" href="/blog/assets/js/41.c43504e7.js"><link rel="prefetch" href="/blog/assets/js/42.fea032c4.js"><link rel="prefetch" href="/blog/assets/js/44.e469946c.js"><link rel="prefetch" href="/blog/assets/js/45.498af734.js"><link rel="prefetch" href="/blog/assets/js/46.5c5381de.js"><link rel="prefetch" href="/blog/assets/js/47.ade54cb1.js"><link rel="prefetch" href="/blog/assets/js/48.543817c4.js"><link rel="prefetch" href="/blog/assets/js/49.170032f2.js"><link rel="prefetch" href="/blog/assets/js/5.bbd49a80.js"><link rel="prefetch" href="/blog/assets/js/50.fdcebebc.js"><link rel="prefetch" href="/blog/assets/js/51.4688ae90.js"><link rel="prefetch" href="/blog/assets/js/52.2f859e2a.js"><link rel="prefetch" href="/blog/assets/js/53.46f20752.js"><link rel="prefetch" href="/blog/assets/js/54.8c4e2bde.js"><link rel="prefetch" href="/blog/assets/js/55.966bf42b.js"><link rel="prefetch" href="/blog/assets/js/56.93296c52.js"><link rel="prefetch" href="/blog/assets/js/57.c0e84a0a.js"><link rel="prefetch" href="/blog/assets/js/58.9c4fac4f.js"><link rel="prefetch" href="/blog/assets/js/59.18ed476c.js"><link rel="prefetch" href="/blog/assets/js/6.3b02335f.js"><link rel="prefetch" href="/blog/assets/js/60.e3ca94f3.js"><link rel="prefetch" href="/blog/assets/js/61.d40e0732.js"><link rel="prefetch" href="/blog/assets/js/62.952d91f1.js"><link rel="prefetch" href="/blog/assets/js/63.03715906.js"><link rel="prefetch" href="/blog/assets/js/64.6dce55d6.js"><link rel="prefetch" href="/blog/assets/js/65.fea30c40.js"><link rel="prefetch" href="/blog/assets/js/66.21bee15e.js"><link rel="prefetch" href="/blog/assets/js/7.64ef9703.js"><link rel="prefetch" href="/blog/assets/js/8.c33961b5.js"><link rel="prefetch" href="/blog/assets/js/9.61bba5ba.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.c98d2fd1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">XiaoXin</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/HTML+CSS/" class="nav-link">HTML+CSS</a></div><div class="nav-item"><a href="/blog/JavaScript/" class="nav-link">JavaScript</a></div><div class="nav-item"><a href="/blog/React/" class="nav-link router-link-active">React</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/Vue/VuePress/" class="nav-link">VuePress</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/electron/" class="nav-link">electron</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/vue官方文档解读/" class="nav-link">vue官方文档解读</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/关于双向绑定的探索/" class="nav-link">关于双向绑定的探索</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/源码学习/" class="nav-link">源码学习</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/问题记录/" class="nav-link">问题记录</a></li></ul></div></div><div class="nav-item"><a href="/blog/命名规范/" class="nav-link">命名规范</a></div><div class="nav-item"><a href="/blog/图床/" class="nav-link">图床</a></div><div class="nav-item"><a href="/blog/大前端/" class="nav-link">大前端</a></div> <a href="https://github.com/starfishing" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/HTML+CSS/" class="nav-link">HTML+CSS</a></div><div class="nav-item"><a href="/blog/JavaScript/" class="nav-link">JavaScript</a></div><div class="nav-item"><a href="/blog/React/" class="nav-link router-link-active">React</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/Vue/VuePress/" class="nav-link">VuePress</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/electron/" class="nav-link">electron</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/vue官方文档解读/" class="nav-link">vue官方文档解读</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/关于双向绑定的探索/" class="nav-link">关于双向绑定的探索</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/源码学习/" class="nav-link">源码学习</a></li><li class="dropdown-item"><!----> <a href="/blog/Vue/问题记录/" class="nav-link">问题记录</a></li></ul></div></div><div class="nav-item"><a href="/blog/命名规范/" class="nav-link">命名规范</a></div><div class="nav-item"><a href="/blog/图床/" class="nav-link">图床</a></div><div class="nav-item"><a href="/blog/大前端/" class="nav-link">大前端</a></div> <a href="https://github.com/starfishing" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/blog/React/" class="sidebar-link">大纲</a></li><li><a href="/blog/React/基础概念.html" class="sidebar-link">初识 React</a></li><li><a href="/blog/React/移除代码注释算法.html" class="sidebar-link">移除 JS 代码中的注释</a></li><li><a href="/blog/React/结合umi的国际化一.html" class="sidebar-link">使用 Node 脚本对前端国际化的处理初探</a></li><li><a href="/blog/React/结合umi的国际化二.html" class="active sidebar-link">使用 Node 脚本对前端国际化（二）</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p>以 locals 文件夹下面存放国际化文件为例，我们将 zh 存放中文为例，下面将演示遍历所有中文文件，并进行翻译，翻译后生成到对应的文件夹下，保持和中文目录下的一致的目录结构。</p> <p>目录结构如下</p> <div class="language-js extra-class"><pre class="language-js"><code>├── index<span class="token punctuation">.</span>js
+├── translate<span class="token operator">-</span>core
+│   ├── google<span class="token operator">-</span>translate<span class="token punctuation">.</span>js
+│   ├── index<span class="token punctuation">.</span>js
+│   └── string<span class="token punctuation">.</span>js
+└── translate<span class="token operator">-</span>helper<span class="token punctuation">.</span>js
+</code></pre></div><p>需要的 npm 包如下</p> <div class="language- extra-class"><pre class="language-text"><code>    &quot;jsonic&quot;: &quot;^0.3.1&quot;,
+    &quot;klaw&quot;: &quot;^3.0.0&quot;,
+    &quot;recast&quot;: &quot;^0.19.1&quot;,
+    &quot;request&quot;: &quot;^2.88.2&quot;,
+    &quot;request-promise-native&quot;: &quot;^1.0.8&quot;,
+    &quot;rimraf&quot;: &quot;^3.0.2&quot;,
+    &quot;through2&quot;: &quot;^3.0.1&quot;
+</code></pre></div><p>在使用 Node 脚本对前端国际化初探已经做了翻译 API，的封装，本次将上次内容放到 translate-core 下。</p> <p>translate-helper 存放了一些工具函数，内容如下</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> through2 <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;through2&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;path&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;fs&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> filterFolder <span class="token operator">=</span> through2<span class="token punctuation">.</span><span class="token function">obj</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">item<span class="token punctuation">,</span> enc<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 添加文件夹标识</span>
+  item<span class="token punctuation">.</span>isFolder <span class="token operator">=</span> <span class="token boolean">false</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>stats<span class="token punctuation">.</span><span class="token function">isDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    item<span class="token punctuation">.</span>isFolder <span class="token operator">=</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+  <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">filterJsFile</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 这种方式过滤会把文件夹下的js文件过滤掉</span>
+  <span class="token keyword">const</span> extname <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">extname</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> extname <span class="token operator">===</span> <span class="token string">&quot;.js&quot;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> filterJs <span class="token operator">=</span> through2<span class="token punctuation">.</span><span class="token function">obj</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">item<span class="token punctuation">,</span> enc<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 过滤所有js文件</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">extname</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>path<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">&quot;.js&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">/**
+ * 读取路径信息
+ * @param {string} path 路径
+ */</span>
+<span class="token keyword">function</span> <span class="token function">getStat</span><span class="token punctuation">(</span><span class="token parameter">path</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    fs<span class="token punctuation">.</span><span class="token function">stat</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> stats</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span>stats<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * 创建路径
+ * @param {string} dir 路径
+ */</span>
+<span class="token keyword">function</span> <span class="token function">mkdir</span><span class="token punctuation">(</span><span class="token parameter">dir</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    fs<span class="token punctuation">.</span><span class="token function">mkdir</span><span class="token punctuation">(</span>dir<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * 路径是否存在，不存在则创建
+ * @param {string} dir 路径
+ */</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">dirExists</span><span class="token punctuation">(</span><span class="token parameter">dir</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> isExists <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getStat</span><span class="token punctuation">(</span>dir<span class="token punctuation">)</span>
+  <span class="token comment">//如果该路径且不是文件，返回true</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>isExists <span class="token operator">&amp;&amp;</span> isExists<span class="token punctuation">.</span><span class="token function">isDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>isExists<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//如果该路径存在但是文件，返回false</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">//如果该路径不存在</span>
+  <span class="token keyword">let</span> tempDir <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>dir<span class="token punctuation">)</span><span class="token punctuation">.</span>dir <span class="token comment">//拿到上级路径</span>
+  <span class="token comment">//递归判断，如果上级目录也不存在，则会代码会在此处继续循环执行，直到目录存在</span>
+  <span class="token keyword">let</span> status <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">dirExists</span><span class="token punctuation">(</span>tempDir<span class="token punctuation">)</span>
+  <span class="token keyword">let</span> mkdirStatus
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mkdirStatus <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">mkdir</span><span class="token punctuation">(</span>dir<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> mkdirStatus
+<span class="token punctuation">}</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  filterFolder<span class="token punctuation">,</span>
+  filterJsFile<span class="token punctuation">,</span>
+  filterJs<span class="token punctuation">,</span>
+  dirExists<span class="token punctuation">,</span>
+  getStat<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>index.js 封装了翻译的主体，一些配置项也在这里</p> <blockquote><p>更新：添加对 index.js 这中入口文件添加兼容，不做翻译处理</p></blockquote> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> klaw <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;klaw&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;path&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;fs&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> recast <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;recast&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> parse<span class="token punctuation">,</span> print <span class="token punctuation">}</span> <span class="token operator">=</span> recast
+<span class="token keyword">const</span> jsonic <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;jsonic&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> filterJs<span class="token punctuation">,</span> dirExists<span class="token punctuation">,</span> getStat <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./translate-helper&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> translate <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./translate-core/index&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> rimraf <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;rimraf&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> through2 <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;through2&quot;</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 需要翻译的语言以及翻译后生成的文件夹名</span>
+<span class="token keyword">const</span> pathMap <span class="token operator">=</span> <span class="token punctuation">{</span>
+  en<span class="token punctuation">:</span> <span class="token string">&quot;en-Us&quot;</span><span class="token punctuation">,</span>
+  ru<span class="token punctuation">:</span> <span class="token string">&quot;ru-Ru&quot;</span><span class="token punctuation">,</span>
+  vi<span class="token punctuation">:</span> <span class="token string">&quot;vi-Vi&quot;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> baseDir <span class="token operator">=</span> <span class="token string">&quot;zh&quot;</span>
+
+<span class="token comment">// 需要翻译的文件夹路径</span>
+<span class="token keyword">const</span> rootDir <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">&quot;../locals&quot;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">let</span> sourceMap <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token comment">// 每次一处旧文件，重新创建新的文件</span>
+<span class="token function">deleteOldDir</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 文件删除完成，开始翻译重建</span>
+    <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">/**
+ * 读取指定文件夹下的所有文件并过滤出js文件，保存路径和ast到集合中
+ * 读取是个异步过程
+ */</span>
+<span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">klaw</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>rootDir<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>filterJs<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>filterEntryIndex<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;data&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> ast <span class="token operator">=</span> <span class="token function">parse</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>path<span class="token punctuation">,</span> <span class="token string">&quot;utf8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      sourceMap<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> item<span class="token punctuation">.</span>path<span class="token punctuation">,</span>
+        ast<span class="token punctuation">,</span>
+        isEntry<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>path<span class="token punctuation">,</span> <span class="token string">&quot;.js&quot;</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">&quot;index&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;end&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">handleParseObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;translate is runing,dont close window......&quot;</span><span class="token punctuation">)</span>
+      sourceMap<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>pathMap<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token function">translateSource</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>path<span class="token punctuation">,</span> <span class="token function">replaceKeyByZero</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>code<span class="token punctuation">)</span><span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * 将字符串astcode转换为对象
+ */</span>
+<span class="token keyword">function</span> <span class="token function">astCodeToObject</span><span class="token punctuation">(</span><span class="token parameter">content</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">jsonic</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/**
+ * 将ast获取的对象表达式字符串转换为js对象
+ */</span>
+<span class="token keyword">function</span> <span class="token function">getSourceObject</span><span class="token punctuation">(</span><span class="token parameter">ast</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> codeObj
+  recast<span class="token punctuation">.</span><span class="token function">visit</span><span class="token punctuation">(</span>ast<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token function">visitObjectExpression</span><span class="token punctuation">(</span><span class="token parameter">path</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> astCode <span class="token operator">=</span> <span class="token function">print</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span>node<span class="token punctuation">)</span><span class="token punctuation">.</span>code
+      codeObj <span class="token operator">=</span> <span class="token function">astCodeToObject</span><span class="token punctuation">(</span>astCode<span class="token punctuation">)</span>
+      <span class="token keyword">return</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> codeObj
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * 批量处理读取的js文件
+ */</span>
+<span class="token keyword">function</span> <span class="token function">handleParseObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  sourceMap <span class="token operator">=</span> sourceMap<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    item<span class="token punctuation">.</span>code <span class="token operator">=</span> <span class="token function">getSourceObject</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>ast<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> item
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> sourceMap
+<span class="token punctuation">}</span>
+<span class="token comment">/**
+ * 将翻译后的文件写回对应的文件夹下
+ * @param {*} dir 目录名称
+ * @param {*} lang 语言选型
+ * @param {*} result 翻译结果（没有翻译的文件传空字符）
+ * @param {*} ast ast结果
+ */</span>
+<span class="token keyword">function</span> <span class="token function">rewriteFolder</span><span class="token punctuation">(</span><span class="token parameter">dir<span class="token punctuation">,</span> lang<span class="token punctuation">,</span> result<span class="token punctuation">,</span> ast</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> rewritPath <span class="token operator">=</span> dir<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>baseDir<span class="token punctuation">,</span> pathMap<span class="token punctuation">[</span>lang<span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token keyword">let</span> resultPath <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>rewritPath<span class="token punctuation">)</span><span class="token punctuation">.</span>dir
+  <span class="token keyword">let</span> sourceCode
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    sourceCode <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">module.exports = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>result<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    sourceCode <span class="token operator">=</span> ast
+  <span class="token punctuation">}</span>
+
+  <span class="token function">dirExists</span><span class="token punctuation">(</span>resultPath<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span>rewritPath<span class="token punctuation">,</span> sourceCode<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * 处理翻译
+ */</span>
+<span class="token keyword">function</span> <span class="token function">translateSource</span><span class="token punctuation">(</span><span class="token parameter">dir<span class="token punctuation">,</span> source<span class="token punctuation">,</span> lang</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">translate</span><span class="token punctuation">(</span><span class="token punctuation">{</span> source<span class="token punctuation">,</span> target<span class="token punctuation">:</span> lang<span class="token punctuation">,</span> log<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">result</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">rewriteFolder</span><span class="token punctuation">(</span>dir<span class="token punctuation">,</span> lang<span class="token punctuation">,</span> <span class="token function">replaceZeroByKey</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">throw</span> e
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/**
+ * 删除存在的其他语言文件夹
+ */</span>
+<span class="token keyword">function</span> <span class="token function">deleteOldDir</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>pathMap<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> cur</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> acc<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> dir <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>rootDir<span class="token punctuation">,</span> pathMap<span class="token punctuation">[</span>cur<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">getStat</span><span class="token punctuation">(</span>dir<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">status</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>status <span class="token operator">&amp;&amp;</span> status<span class="token punctuation">.</span><span class="token function">isDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">rimraf</span><span class="token punctuation">(</span>dir<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+              <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+                <span class="token function">reject</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+              <span class="token punctuation">}</span>
+              <span class="token comment">// 文件删除完成</span>
+              <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+          <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token comment">// })</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * 过滤文件夹下index入口文件
+ */</span>
+<span class="token keyword">const</span> filterEntryIndex <span class="token operator">=</span> through2<span class="token punctuation">.</span><span class="token function">obj</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">item<span class="token punctuation">,</span> enc<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>path<span class="token punctuation">,</span> <span class="token string">&quot;.js&quot;</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">&quot;index&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>pathMap<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> ast <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>path<span class="token punctuation">,</span> <span class="token string">&quot;utf8&quot;</span><span class="token punctuation">)</span>
+      <span class="token function">rewriteFolder</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>path<span class="token punctuation">,</span> key<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> ast<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// this.push(chunk);</span>
+  <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">/**
+ * 去除文本中的{key},避免翻译格式错误
+ * @param {*} source
+ */</span>
+
+<span class="token keyword">function</span> <span class="token function">replaceKeyByZero</span><span class="token punctuation">(</span><span class="token parameter">source</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> nokeySource <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    nokeySource<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> source<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/{key}/g</span><span class="token punctuation">,</span> <span class="token string">&quot;{0}&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> nokeySource
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * 还原文本中的{key}
+ * @param {*} source
+ */</span>
+
+<span class="token keyword">function</span> <span class="token function">replaceZeroByKey</span><span class="token punctuation">(</span><span class="token parameter">source</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> noZeroSource <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    noZeroSource<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> source<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/{[0]*}/g</span><span class="token punctuation">,</span> <span class="token string">&quot;{key}&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> noZeroSource
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">7/7/2020, 11:00:09 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/blog/React/结合umi的国际化一.html" class="prev">
+          使用 Node 脚本对前端国际化的处理初探
+        </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.2ae5fea5.js" defer></script><script src="/blog/assets/js/2.6a053b7f.js" defer></script><script src="/blog/assets/js/43.d981b84c.js" defer></script>
+  </body>
+</html>
